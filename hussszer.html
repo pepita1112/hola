@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos Procesados</title>
+</head>
+<body>
+    <h2>Datos Recibidos</h2>
+    <p id="email"></p>
+    <p id="password"></p>
+
+    <script>
+        document.getElementById("email").textContent = "Correo: " + localStorage.getItem("email");
+        document.getElementById("password").textContent = "Contraseña: " + localStorage.getItem("password");
+    </script>
+</body>
+</html>
